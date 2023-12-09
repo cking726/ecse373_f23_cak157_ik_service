@@ -4,7 +4,7 @@
 #include "ik_service/PoseIK.h"
 #include "ur_kinematics/ur_kin.h"
 
-int main(int argc, char  *argv)
+int main(int argc, char **argv)
 {
 
     ros::init(argc,argv,"ik_client");

@@ -21,7 +21,7 @@ bool pose_ik(ik_service::PoseIK::Request &req,
 }
 
 
-int main(int argc, char *argv)
+int main(int argc, char **argv)
 {   
     
     ros::init(argc,argv,"pose_ik_service");
