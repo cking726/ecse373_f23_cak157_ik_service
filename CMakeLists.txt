@@ -139,8 +139,8 @@ include_directories(
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
 # add_executable(${PROJECT_NAME}_node src/ik_service_node.cpp)
-add_executable(ik_service_node src/ik_service.cpp)
-add_executable(ik_service_node src/ik_client.cpp)
+add_executable(ik_service src/ik_service.cpp)
+add_executable(ik_client src/ik_client.cpp)
 
 
 ## Rename C++ executable without prefix
