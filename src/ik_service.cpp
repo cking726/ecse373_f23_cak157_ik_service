@@ -5,27 +5,23 @@
 #include "ur_kinematics/ur_kin.h"
 
 // Service function
-bool pose_ik(ik_service::PoseIK::Request &req, ik_service::PoseIK::Response &res)
+bool pose_ik(ik_service::PoseIK::Request &req,
+             ik_service::PoseIK::Response &res)
 {   
-    
-    // Second, 2D way to define the same T Matrix
+    double q[] = {3.14, -1.13, 1.51, 3.77, -1.51, 0};
     double T[4][4] = {{0.0, -1.0, 0.0, req.part_pose.position.x}, \
-    {0.0, 0.0, 1.0, req.part_pose.position.y}, \
-    {-1.0, 0.0, 0.0 , req.part_pose.position.z}, \
-    {0.0, 0.0, 0.0, 1.0}};
-    // Variable to receive the number of solutions returned
+                      {0.0, 0.0, 1.0, req.part_pose.position.y}, \
+                      {-1.0, 0.0, 0.0 , req.part_pose.position.z}, \
+                      {0.0, 0.0, 0.0, 1.0}};
     int num_sol;
-    // Allocate space for up to eight solutions of six joint angles
     float q_sols[8][6];
-    // Inverse kinematic solution(s)
     num_sol = ur_kinematics::inverse(&T[0][0], (double *)&q_sols[0][0], 0.0);
-    // The last element is the required precision of the solutions.
 
     return true;
 }
 
 
-int main(int argc, char  *argv[])
+int main(int argc, char *argv)
 {   
     
     ros::init(argc,argv,"pose_ik_service");
