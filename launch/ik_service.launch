@@ -1,0 +1,3 @@
+<launch>
+    <node name="ik_service" pkg="ik_service" type="ik_service_node" output="screen"/>
+</launch>
